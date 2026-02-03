@@ -1,0 +1,46 @@
+screen:
+  scale: 1.0
+  random_click:
+    margin: 1        # 随机点离边缘至少 3px，避免点到边框/空白
+    seed: null       # 填数字可复现，不填用随机
+
+timing:
+  click_gap_range: [0.2, 0.35]
+  poll_interval_range: [0.4, 0.8]
+  after_places_wait_sec: 1
+  percent_wait_timeout_sec: 45
+  home_start_fight_gap_range: [0.15, 0.4]
+
+click_regions:
+  start:   { p1: [810, 834], p2: [848, 874] }
+  fight:   { p1: [1177, 766], p2: [1272, 796] }
+
+  select_1: { p1: [941, 840], p2: [962, 855] }
+  select_2: { p1: [980, 840], p2: [1000, 855] }
+  select_3: { p1: [1020, 840], p2: [1035, 855] }
+  select_4: { p1: [1060, 840], p2: [1070, 855] }
+  select_5: { p1: [1090, 840], p2: [1120, 855] }
+
+  place_1: { p1: [824, 634], p2: [844, 654] }
+  place_2: { p1: [1252, 610], p2: [1272, 630] }
+  place_3: { p1: [874, 780], p2: [900, 792] }
+  place_4: { p1: [1260, 700], p2: [1270, 710] }
+  place_5: { p1: [1345, 772], p2: [1360, 790] }
+  place_6: { p1: [1120, 594], p2: [1135, 610] }
+  place_7: { p1: [910, 590], p2: [920, 610] }
+  place_8: { p1: [1386, 713], p2: [1400, 730] }
+
+  cancel:  { p1: [812, 800], p2: [852, 810] }
+  confirm: { p1: [1110, 760], p2: [1178, 780] }
+  back:    { p1: [1062, 832], p2: [1127, 850] }
+
+detect_points:
+  home:   [845, 862]
+  battle: [1030, 842]
+
+detect_points_expected_color:
+  home:   [160, 82, 38]
+  battle: [189, 100, 248]
+
+detect_regions:
+  percent: { p1: [1355, 813], p2: [1375, 826] }
