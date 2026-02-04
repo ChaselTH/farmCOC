@@ -34,6 +34,10 @@ click_regions:
   confirm: { p1: [1110, 760], p2: [1178, 780] }
   back:    { p1: [1062, 832], p2: [1127, 850] }
 
+  collect: { p1: [1215, 590], p2: [1228, 599] }
+  collect_confirm: { p1: [1195, 827], p2: [1248, 843]}
+  collect_cancel: { p1: [1271, 608], p2: [1281, 619]}
+
 detect_points:
   home:   [845, 862]
   battle: [1030, 842]

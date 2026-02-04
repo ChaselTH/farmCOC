@@ -335,7 +335,7 @@ class Bot:
             "start", "fight",
             "select_1", "select_2", "select_3", "select_4", "select_5",
             "place_1", "place_2", "place_3", "place_4", "place_5", "place_6", "place_7", "place_8",
-            "cancel", "confirm", "back",
+            "cancel", "confirm", "back", "collect", "collect_confirm", "collect_cancel"
         ]
         for k in required_click:
             if k not in self.click_regions:
@@ -385,6 +385,7 @@ class Bot:
             self.random_click("fight")
 
         while not self.is_battle_true():
+            if self.is_home_true(): return
             self._check_stop()
             safe_sleep(self.rand_delay(self.poll_interval_range))
 
@@ -432,15 +433,28 @@ class Bot:
         self.cancel_flow()
 
     def cancel_flow(self):
+        time.sleep(0.5)
         self.random_click("cancel")
+        time.sleep(0.5)
         self.random_click("confirm")
+        time.sleep(0.5)
         self.random_click("back")
+
+    def collect_flow(self):
+        self.random_click("collect")
+        time.sleep(0.5)
+        self.random_click("collect_confirm")
+        time.sleep(0.5)
+        self.random_click("collect_cancel")
 
     def run_forever(self):
         i = 0
         while not STOP_EVENT.is_set():
             i += 1
             print(f"\n===== LOOP {i} =====")
+            if i%5 == 0:
+                self.collect_flow()
+                print(f"WATER COLLECTED IN LOOP {i}")
             try:
                 self.run_one_loop()
                 time.sleep(5)
