@@ -426,19 +426,21 @@ class Bot:
             safe_sleep(self.rand_delay(self.poll_interval_range))
             p = read_percent(percent_rect)
             print(f"[detect] percent={p}")
-            if p is not None and p > 50:
-                print("[rule] percent > 50 -> cancel")
+            if p is not None and p > 60:
+                print("[rule] percent > 60 -> cancel")
                 break
 
         self.cancel_flow()
 
     def cancel_flow(self):
-        time.sleep(0.5)
-        self.random_click("cancel")
-        time.sleep(0.5)
-        self.random_click("confirm")
-        time.sleep(0.5)
-        self.random_click("back")
+        while not self.is_home_true():
+            time.sleep(1)
+            self.random_click("cancel")
+            time.sleep(0.5)
+            self.random_click("confirm")
+            time.sleep(0.5)
+            self.random_click("back")
+            time.sleep(3)
 
     def collect_flow(self):
         self.random_click("collect")
