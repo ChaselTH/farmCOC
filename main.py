@@ -426,8 +426,8 @@ class Bot:
             safe_sleep(self.rand_delay(self.poll_interval_range))
             p = read_percent(percent_rect)
             print(f"[detect] percent={p}")
-            if p is not None and p > 60:
-                print("[rule] percent > 60 -> cancel")
+            if p is not None and p > 75:
+                print("[rule] percent > 75 -> cancel")
                 break
 
         self.cancel_flow()
